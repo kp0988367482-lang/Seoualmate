@@ -1,0 +1,15 @@
+﻿{
+    "python.defaultInterpreterPath":  "C:\\\\Users\\\\pc500\\\\Desktop\\\\새 폴더 (2)\\\\playform\\\\backend\\\\.venv\\\\Scripts\\\\python.exe",
+    "python-envs.defaultEnvManager":  "ms-python.python:venv",
+    "python-envs.defaultPackageManager":  "ms-python.python:pip",
+    "python-envs.alwaysUseUv":  false,
+    "python.terminal.activateEnvironment":  true,
+    "python.analysis.diagnosticMode":  "workspace",
+    "python.analysis.exclude":  [
+                                    "**/.venv/**"
+                                ],
+    "python.analysis.extraPaths":  [
+                                       "${workspaceFolder}\\playform\\backend"
+                                   ],
+    "python.useEnvironmentsExtension":  false
+}

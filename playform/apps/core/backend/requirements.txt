@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pydantic
+sqlmodel
+sqlalchemy
+passlib[bcrypt]
+python-jose[cryptography]
+firebase-admin
+mcp
+requests
+httpx
+python-dotenv

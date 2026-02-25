@@ -1,0 +1,64 @@
+name: 🤖 AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  ai-review:
+    name: 🤖 AI Code Review
+    runs-on: ubuntu-latest
+
+    permissions:
+      pull-requests: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get PR diff
+        id: diff
+        run: |
+          git diff origin/main..HEAD --stat > diff_stat.txt
+          git diff origin/main..HEAD > diff_full.txt
+          echo "Files changed:"
+          cat diff_stat.txt
+
+      - name: AI Review Comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const stat = fs.readFileSync('diff_stat.txt', 'utf8');
+
+            const comment = `## 🤖 Antigravity AI Code Review
+
+            ### 📊 변경 요약
+            \`\`\`
+            ${stat}
+            \`\`\`
+
+            ### ✅ 체크리스트
+            - [ ] 코드 스타일이 일관적인가?
+            - [ ] 보안 취약점이 없는가?
+            - [ ] 테스트가 추가되었는가?
+            - [ ] API 문서가 업데이트 되었는가?
+            - [ ] 환경변수가 하드코딩되지 않았는가?
+
+            ### 🔥 리뷰 기준
+            > **Playform 코딩 표준**
+            > - Python: PEP8 + 타입 힌트 필수
+            > - React: 함수형 컴포넌트 + hooks
+            > - 커밋: Conventional Commits 형식
+
+            *Powered by Antigravity AI Agent* 🚀
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });

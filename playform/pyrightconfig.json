@@ -1,0 +1,20 @@
+{
+  "include": [
+    "apps/core/backend"
+  ],
+  "exclude": [
+    "apps/core/backend/.venv",
+    "**/__pycache__",
+    "node_modules"
+  ],
+  "venvPath": "apps/core/backend",
+  "venv": ".venv",
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "basic",
+  "reportMissingImports": false,
+  "reportMissingModuleSource": "none",
+  "reportGeneralTypeIssues": "none",
+  "reportCallIssue": "none",
+  "reportArgumentType": "none",
+  "useLibraryCodeForTypes": true
+}

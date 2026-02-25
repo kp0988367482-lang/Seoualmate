@@ -1,0 +1,14 @@
+{
+    "name": "playform-workspace",
+    "private": true,
+    "workspaces": [
+        "apps/*"
+    ],
+    "scripts": {
+        "dev:core": "cd apps/core/frontend && npm run dev",
+        "dev:admin": "cd apps/admin && npm run dev",
+        "dev:landing": "cd apps/landing && npm run dev",
+        "api:core": "cd apps/core/backend && .\\.venv\\Scripts\\python.exe main.py",
+        "install:all": "npm install && cd apps/core/frontend && npm install && cd ../../admin && npm install && cd ../landing && npm install"
+    }
+}

@@ -1,0 +1,14 @@
+2026-02-24 08:35:52,711 DEBUG Initializing server 'playform'
+2026-02-24 08:35:52,711 DEBUG Registering handler for ListToolsRequest
+2026-02-24 08:35:52,711 DEBUG Registering handler for CallToolRequest
+2026-02-24 08:35:52,711 DEBUG Registering handler for ListResourcesRequest
+2026-02-24 08:35:52,711 DEBUG Registering handler for ReadResourceRequest
+2026-02-24 08:35:52,711 DEBUG Registering handler for PromptListRequest
+2026-02-24 08:35:52,712 DEBUG Registering handler for GetPromptRequest
+2026-02-24 08:35:52,712 DEBUG Registering handler for ListResourceTemplatesRequest
+2026-02-24 08:35:52,717 INFO Python executable: C:\Users\pc500\Desktop\새 폴더 (2)\playform\backend\.venv\Scripts\python.exe
+2026-02-24 08:35:52,718 INFO sys.path: ['c:\\Users\\pc500\\Desktop\\새 폴더 (2)\\playform', 'C:\\Users\\pc500\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip', 'C:\\Users\\pc500\\AppData\\Local\\Programs\\Python\\Python312\\DLLs', 'C:\\Users\\pc500\\AppData\\Local\\Programs\\Python\\Python312\\Lib', 'C:\\Users\\pc500\\AppData\\Local\\Programs\\Python\\Python312', 'C:\\Users\\pc500\\Desktop\\새 폴더 (2)\\playform\\backend\\.venv', 'C:\\Users\\pc500\\Desktop\\새 폴더 (2)\\playform\\backend\\.venv\\Lib\\site-packages', 'C:\\Users\\pc500\\Desktop\\새 폴더 (2)\\playform\\backend\\.venv\\Lib\\site-packages\\win32', 'C:\\Users\\pc500\\Desktop\\새 폴더 (2)\\playform\\backend\\.venv\\Lib\\site-packages\\win32\\lib', 'C:\\Users\\pc500\\Desktop\\새 폴더 (2)\\playform\\backend\\.venv\\Lib\\site-packages\\Pythonwin']
+2026-02-24 08:35:52,718 INFO mcp version: None
+2026-02-24 08:35:52,718 INFO requests version: 2.32.5
+2026-02-24 08:35:52,718 INFO Starting MCP server (playform)
+2026-02-24 08:35:52,725 DEBUG Using proactor: IocpProactor

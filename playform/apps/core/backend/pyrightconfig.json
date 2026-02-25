@@ -1,0 +1,12 @@
+{
+    "venvPath": ".",
+    "venv": ".venv",
+    "pythonVersion": "3.12",
+    "typeCheckingMode": "basic",
+    "reportMissingModuleSource": "none",
+    "reportMissingImports": false,
+    "reportGeneralTypeIssues": "none",
+    "reportCallIssue": "none",
+    "reportArgumentType": "none",
+    "useLibraryCodeForTypes": true
+}

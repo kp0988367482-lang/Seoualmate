@@ -1,0 +1,33 @@
+# GitHub 라벨러 설정
+# PR에 변경된 파일 경로에 따라 자동으로 라벨 추가
+
+backend:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "apps/core/backend/**"
+
+frontend:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "apps/core/frontend/**"
+
+landing:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "apps/landing/**"
+
+admin:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "apps/admin/**"
+
+ci/cd:
+  - changed-files:
+    - any-glob-to-any-file:
+      - ".github/**"
+
+documentation:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "*.md"
+      - "docs/**"

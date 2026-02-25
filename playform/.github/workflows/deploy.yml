@@ -1,0 +1,102 @@
+name: 🚀 Playform Deploy
+
+on:
+  push:
+    branches: [main]
+
+# Secrets 필요:
+# FIREBASE_TOKEN     — firebase login:ci 로 생성
+# VERCEL_TOKEN       — Vercel 대시보드에서 생성
+# VERCEL_ORG_ID      — Vercel 팀/개인 ID
+# VERCEL_PROJECT_ID_LANDING  — landing 프로젝트 ID
+# VERCEL_PROJECT_ID_ADMIN    — admin 프로젝트 ID
+
+jobs:
+  # ─────────────────────────────────────────────
+  # Deploy Landing Page → Vercel
+  # ─────────────────────────────────────────────
+  deploy-landing:
+    name: 🌐 Deploy Landing → Vercel
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Build Landing
+        run: |
+          cd apps/landing
+          npm ci || npm install
+          npm run build
+
+      - name: Deploy to Vercel (Production)
+        run: |
+          cd apps/landing
+          vercel --prod --token=${{ secrets.VERCEL_TOKEN }} \
+            --scope=${{ secrets.VERCEL_ORG_ID }} \
+            --yes || echo "Configure VERCEL_TOKEN to enable deploy"
+
+  # ─────────────────────────────────────────────
+  # Deploy Admin Dashboard → Vercel
+  # ─────────────────────────────────────────────
+  deploy-admin:
+    name: 🛠️ Deploy Admin → Vercel
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Build Admin
+        run: |
+          cd apps/admin
+          npm ci || npm install
+          npm run build
+
+      - name: Deploy to Vercel (Production)
+        run: |
+          cd apps/admin
+          vercel --prod --token=${{ secrets.VERCEL_TOKEN }} \
+            --scope=${{ secrets.VERCEL_ORG_ID }} \
+            --yes || echo "Configure VERCEL_TOKEN to enable deploy"
+
+  # ─────────────────────────────────────────────
+  # Deploy Backend → Firebase / Railway
+  # ─────────────────────────────────────────────
+  deploy-backend:
+    name: 🐍 Deploy Backend API
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          cd apps/core/backend
+          pip install -r requirements.txt || true
+
+      - name: Deploy (Railway / Firebase Functions)
+        run: |
+          echo "✅ Backend deploy step"
+          echo "Configure RAILWAY_TOKEN or FIREBASE_TOKEN in GitHub Secrets"
+          # railway up  ← Uncomment when Railway is connected
+          # firebase deploy --only functions --token ${{ secrets.FIREBASE_TOKEN }}

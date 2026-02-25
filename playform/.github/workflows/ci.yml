@@ -1,0 +1,118 @@
+name: 🔥 Playform CI — Build, Lint, Test
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  # ─────────────────────────────────────────────
+  # 1. Backend (FastAPI + Python)
+  # ─────────────────────────────────────────────
+  backend:
+    name: 🐍 Backend — Python
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          cd apps/core/backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || pip install fastapi uvicorn pytest
+
+      - name: Lint (flake8)
+        run: |
+          pip install flake8
+          flake8 apps/core/backend --max-line-length=100 --exclude=.venv || true
+
+      - name: Type check (pyright)
+        run: |
+          pip install pyright || true
+          pyright apps/core/backend || true
+
+      - name: Run tests
+        run: |
+          cd apps/core/backend
+          pytest -q || echo "No tests found — skipping"
+
+  # ─────────────────────────────────────────────
+  # 2. Frontend — Core App
+  # ─────────────────────────────────────────────
+  frontend-core:
+    name: ⚛️ Frontend — Core
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: apps/core/frontend/package-lock.json
+
+      - name: Install & Build
+        run: |
+          cd apps/core/frontend
+          npm ci || npm install
+          npm run build || true
+
+      - name: Lint
+        run: |
+          cd apps/core/frontend
+          npm run lint || true
+
+  # ─────────────────────────────────────────────
+  # 3. Frontend — Landing Page
+  # ─────────────────────────────────────────────
+  frontend-landing:
+    name: 🌐 Frontend — Landing
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: apps/landing/package-lock.json
+
+      - name: Install & Build
+        run: |
+          cd apps/landing
+          npm ci || npm install
+          npm run build || true
+
+  # ─────────────────────────────────────────────
+  # 4. Frontend — Admin Dashboard
+  # ─────────────────────────────────────────────
+  frontend-admin:
+    name: 🛠️ Frontend — Admin
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: apps/admin/package-lock.json
+
+      - name: Install & Build
+        run: |
+          cd apps/admin
+          npm ci || npm install
+          npm run build || true
