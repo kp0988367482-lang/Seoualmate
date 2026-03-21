@@ -34,13 +34,9 @@ Thumbs.db
 backend/.venv/
 backend/__pycache__/
 
-# Playform 하위
-playform/node_modules/
-playform/.venv/
-playform/apps/*/node_modules/
-playform/apps/*/dist/
-playform/*.db
-playform/mcp_server.log
+# Workspace apps
+apps/*/node_modules/
+apps/*/dist/
 
 # Snapshots
 .snapshots/
