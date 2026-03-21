@@ -1,0 +1,22 @@
+#惡 Seoualmate Fix & Run Tracker
+Status: 5/10 complete (Python ✓, Backend deps ✓, Frontend dev ✓, Backend server starting)
+
+## 1. Environment Setup (0/3)
+- [ ] Install Python3 + alias 'python' = python3
+- [ ] Backend: cd apps/core/backend && python -m venv venv && source venv/bin/activate && pip install -r requirements.txt
+- [ ] Create .env (copy .env.example + keys)
+
+## 2. Backend Run (0/3)
+- [ ] cd apps/core/backend && python -m uvicorn main:app --reload --port 8000
+- [ ] Test /health, /docs at localhost:8000
+- [ ] Seed DB: python seeds.py
+
+## 3. Frontend Run (0/2)
+- [ ] cd apps/core/frontend && npm run dev (:5173)
+- [ ] Test app at localhost:5173
+
+## 4. Demos & Complete (0/2)
+- [ ] Test run.py (dashboard)
+- [ ] Complete TODO phases 2-4 or attempt_completion
+
+Next: Python install.

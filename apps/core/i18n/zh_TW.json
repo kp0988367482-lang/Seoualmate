@@ -1,0 +1,49 @@
+{
+  "brand": {
+    "name": "Seoualmate",
+    "tagline": "首爾感配對平台"
+  },
+  "auth": {
+    "login": "登入",
+    "signup": "註冊",
+    "username": "使用者名稱",
+    "password": "密碼",
+    "welcome_back": "歡迎回來"
+  },
+  "profile": {
+    "title": "配對檔案",
+    "create": "建立檔案",
+    "name": "姓名",
+    "age": "年齡",
+    "bio": "自我介紹",
+    "matches": "配對次數",
+    "empty": "目前還沒有公開檔案"
+  },
+  "dashboard": {
+    "title": "儀表板",
+    "total_profiles": "檔案總數",
+    "current_user": "目前登入",
+    "total_matches": "累積配對次數",
+    "recent_profiles": "最近檔案"
+  },
+  "ui": {
+    "btn": {
+      "save": "儲存",
+      "save_and_close": "儲存並關閉",
+      "cancel": "取消",
+      "delete": "刪除",
+      "login": "登入",
+      "logout": "登出",
+      "refresh": "重新整理"
+    },
+    "alert": {
+      "delete": {
+        "confirm": "確定要刪除此項目？此操作無法復原。"
+      }
+    },
+    "form": {
+      "submit": "送出",
+      "required": "此欄位為必填"
+    }
+  }
+}

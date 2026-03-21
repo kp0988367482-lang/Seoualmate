@@ -1,5 +1,5 @@
 ﻿{
-  "python.defaultInterpreterPath": "${workspaceFolder}/playform/apps/core/backend/.venv/Scripts/python.exe",
+  "python.defaultInterpreterPath": "${workspaceFolder}/apps/core/backend/.venv",
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
   "python.terminal.activateEnvironment": true,
@@ -9,10 +9,10 @@
     "**/__pycache__/**"
   ],
   "python.analysis.extraPaths": [
-    "${workspaceFolder}/playform/apps/core/backend",
-    "${workspaceFolder}/playform"
+    "${workspaceFolder}/apps/core/backend",
+    "${workspaceFolder}"
   ],
-  "python.analysis.venvPath": "${workspaceFolder}/playform/apps/core/backend",
+  "python.analysis.venvPath": "${workspaceFolder}/apps/core/backend",
   "python.analysis.venv": ".venv",
   "python.analysis.typeCheckingMode": "basic",
   "claudeCodeChat.permissions.yoloMode": true
